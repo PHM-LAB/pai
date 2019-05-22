@@ -49,18 +49,3 @@ export const spacing = {
   l2: '32px',
   l3: '64px',
 };
-// export const color = {
-//   red: '#eb1123',
-//   yellow: '#fcd116',
-//   green: '#7fba00',
-//   blue: '#0071bc',
-//   gray: '#b1b5b8',
-// };
-
-// export const teskRoleCountColor = {
-//   waiting: color.yellow,
-//   failed: color.red,
-//   running: color.blue,
-//   succeeded: color.green,
-//   unknown: color.gray,
-// };
