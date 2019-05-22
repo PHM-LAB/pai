@@ -101,7 +101,7 @@ export default class TaskRole extends React.Component {
     const {rawJobConfig} = this.context;
     const taskConfig = getTaskConfig(rawJobConfig, name);
     return (
-      <div className={className}  style={{marginBottom: spacing.s1}}>
+      <div className={className} style={{marginBottom: spacing.s1}}>
         {/* summary */}
         <Card style={{backgroundColor: isFailed ? semanticColors.errorBackground : undefined}}>
           <div className={c(t.flex, t.itemsCenter, t.justifyBetween)} style={{paddingLeft: spacing.l2, paddingRight: spacing.l2, paddingTop: spacing.l1, paddingBottom: spacing.l1}}>

@@ -167,7 +167,7 @@ export default function JobList() {
   return (
     <Context.Provider value={context}>
       <Fabric className={c(t.h100)}>
-        <Stack verticalFill className={c(t.relative)} styles={{root: { padding: spacing.l1, paddingTop: 0}}}>
+        <Stack verticalFill className={c(t.relative)} styles={{root: {padding: spacing.l1, paddingTop: 0}}}>
           <Stack.Item>
             <TopBar/>
           </Stack.Item>

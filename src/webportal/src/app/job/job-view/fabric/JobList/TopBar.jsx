@@ -51,11 +51,11 @@ function KeywordSearchBox() {
 
   /** @type {import('office-ui-fabric-react').IStyle} */
   const rootStyles = {
-    backgroundColor: 'transparent', 
-    alignSelf: 'center', 
+    backgroundColor: 'transparent',
+    alignSelf: 'center',
     width: 220,
     padding: 0,
-    border: 'none'
+    border: 'none',
   };
   return (
     <SearchBox
@@ -125,7 +125,7 @@ function TopBar() {
       key: 'stop',
       name: 'Stop',
       buttonStyles: {root: {
-        backgroundColor: 'transparent', 
+        backgroundColor: 'transparent',
         height: '100%',
         paddingLeft: spacing.s1,
         paddingRight: spacing.s1,
@@ -148,11 +148,11 @@ function TopBar() {
       key: 'new',
       name: 'New',
       buttonStyles: {root: {
-        backgroundColor: 'transparent', 
+        backgroundColor: 'transparent',
         height: '100%',
         paddingLeft: spacing.s1,
         paddingRight: spacing.s1,
-        marginRight: spacing.s1
+        marginRight: spacing.s1,
     }},
       iconProps: {
         iconName: 'Add',
@@ -169,7 +169,7 @@ function TopBar() {
       key: 'refresh',
       name: 'Refresh',
       buttonStyles: {root: {
-        backgroundColor: 'transparent', 
+        backgroundColor: 'transparent',
         height: '100%',
         paddingLeft: spacing.s1,
         paddingRight: spacing.s1,
