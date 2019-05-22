@@ -47,7 +47,7 @@ export const IconBadge = ({children, className, icons}) => (
           icons.map((iconName, idx) => (
             <Icon key={`icon-${idx}-${iconName}`} className={c(t.absolute, t.absoluteFill, t.tc, t.vMid, t.lhSolid)}
             styles={{root: {
-              color: idx === 0 ?  {
+              color: idx === 0 ? {
                 Waiting: statusColorMapping.waiting,
                 Running: statusColorMapping.running,
                 Stopping: statusColorMapping.stopping,
