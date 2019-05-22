@@ -19,14 +19,6 @@ import {loadTheme, FontWeights} from '@uifabric/styling';
 
 export function initTheme() {
   loadTheme({
-    spacing: {
-      s2: '4px',
-      s1: '8px',
-      m: '16px',
-      l1: '20px',
-      l2: '32px',
-      l3: '64px',
-    },
     fonts: {
       xLarge: {
         fontSize: 20,
@@ -40,18 +32,35 @@ export function initTheme() {
   });
 }
 
-export const color = {
-  red: '#eb1123',
-  yellow: '#fcd116',
-  green: '#7fba00',
-  blue: '#0071bc',
-  gray: '#b1b5b8',
-};
-
 export const statusColorMapping = {
-  waiting: color.yellow,
-  failed: color.red,
-  running: color.blue,
-  succeeded: color.green,
-  unknown: color.gray,
+  saiting: '#F9B61A',
+  running: '#579AE6',
+  stopping: '#579AE6',
+  succeeded: '#54D373',
+  failed: '#E06260',
+  stopped: '#B1B5B8',
+  unknown: '#B1B5B8',
 };
+export const spacing = {
+  s2: '4px',
+  s1: '8px',
+  m: '16px',
+  l1: '20px',
+  l2: '32px',
+  l3: '64px',
+};
+// export const color = {
+//   red: '#eb1123',
+//   yellow: '#fcd116',
+//   green: '#7fba00',
+//   blue: '#0071bc',
+//   gray: '#b1b5b8',
+// };
+
+// export const teskRoleCountColor = {
+//   waiting: color.yellow,
+//   failed: color.red,
+//   running: color.blue,
+//   succeeded: color.green,
+//   unknown: color.gray,
+// };

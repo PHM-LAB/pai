@@ -29,7 +29,7 @@ import Context from './context';
 import MonacoCallout from './monaco-callout';
 import TaskRoleContainerList from './task-role-container-list';
 import {getTaskConfig} from '../util';
-import {statusColorMapping} from '../../../../../components/theme';
+import {statusColorMapping, spacing} from '../../../../../components/theme';
 
 export default class TaskRole extends React.Component {
   constructor(props) {
@@ -84,10 +84,10 @@ export default class TaskRole extends React.Component {
     return (
       <div className={c(t.flex, t.itemsCenter)}>
         {Object.keys(count).filter((x) => count[x] > 0).map((x) => (
-          <div key={x} className={c(t.mr3, t.flex, t.itemsCenter)}>
+          <div key={x} className={c(t.mr3, t.flex, t.itemsCenter)} style={{marginRight: spacing.l1}}>
             <div className={c(t.br100, t.h1, t.w1)} style={{backgroundColor: statusColorMapping[x]}}>
             </div>
-            <div className={c(t.ml2)}>{count[x]}</div>
+            <div style={{marginLeft: spacing.s1}}>{count[x]}</div>
           </div>
         ))}
       </div>
@@ -101,10 +101,10 @@ export default class TaskRole extends React.Component {
     const {rawJobConfig} = this.context;
     const taskConfig = getTaskConfig(rawJobConfig, name);
     return (
-      <div className={c(t.bgWhite, className)}>
+      <div className={className}  style={{marginBottom: spacing.s1}}>
         {/* summary */}
         <Card style={{backgroundColor: isFailed ? semanticColors.errorBackground : undefined}}>
-          <div className={c(t.pv3, t.flex, t.itemsCenter, t.justifyBetween)} style={{paddingLeft: 32, paddingRight: 32}}>
+          <div className={c(t.flex, t.itemsCenter, t.justifyBetween)} style={{paddingLeft: spacing.l2, paddingRight: spacing.l2, paddingTop: spacing.l1, paddingBottom: spacing.l1}}>
             {/* left */}
             <div className={c(t.flex, t.itemsCenter)}>
               {isFailed && (
@@ -118,14 +118,12 @@ export default class TaskRole extends React.Component {
               </div>
               {taskConfig && (
                 <MonacoCallout language='yaml' value={yaml.safeDump(taskConfig)}>
-                  <IconButton className={ColorClassNames.themePrimary} iconProps={{iconName: 'Info'}} />
+                  <IconButton className={ColorClassNames.themePrimary} iconProps={{iconName: 'Info'}} style={{marginLeft: spacing.s1}}/>
                 </MonacoCallout>
               )}
               {/* status */}
-              <div className={c(t.ml5, t.flex, t.itemsCenter, t.justifyStart)}>
-                <div className={c(t.ml3)}>
+              <div className={c(t.flex, t.itemsCenter, t.justifyStart)} style={{marginLeft: spacing.l3}}>
                   {this.renderTaskRoleCount()}
-                </div>
               </div>
             </div>
             {/* right */}

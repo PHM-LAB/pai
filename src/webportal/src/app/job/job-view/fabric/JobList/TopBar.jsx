@@ -21,6 +21,7 @@ import {CommandBarButton} from 'office-ui-fabric-react/lib/Button';
 import {SearchBox} from 'office-ui-fabric-react/lib/SearchBox';
 import {CommandBar} from 'office-ui-fabric-react/lib/CommandBar';
 import {ContextualMenuItemType} from 'office-ui-fabric-react/lib/ContextualMenu';
+import {spacing} from '../../../../components/theme';
 
 import Context from './Context';
 import Filter from './Filter';
@@ -49,7 +50,13 @@ function KeywordSearchBox() {
   }
 
   /** @type {import('office-ui-fabric-react').IStyle} */
-  const rootStyles = {backgroundColor: 'transparent', alignSelf: 'center', width: 220};
+  const rootStyles = {
+    backgroundColor: 'transparent', 
+    alignSelf: 'center', 
+    width: 220,
+    padding: 0,
+    border: 'none'
+  };
   return (
     <SearchBox
       underlined
@@ -117,7 +124,13 @@ function TopBar() {
     return {
       key: 'stop',
       name: 'Stop',
-      buttonStyles: {root: {backgroundColor: 'transparent', height: '100%'}},
+      buttonStyles: {root: {
+        backgroundColor: 'transparent', 
+        height: '100%',
+        paddingLeft: spacing.s1,
+        paddingRight: spacing.s1,
+        marginRight: spacing.s1,
+      }},
       iconProps: {
         iconName: 'StopSolid',
       },
@@ -134,7 +147,13 @@ function TopBar() {
     return {
       key: 'new',
       name: 'New',
-      buttonStyles: {root: {backgroundColor: 'transparent', height: '100%'}},
+      buttonStyles: {root: {
+        backgroundColor: 'transparent', 
+        height: '100%',
+        paddingLeft: spacing.s1,
+        paddingRight: spacing.s1,
+        marginRight: spacing.s1
+    }},
       iconProps: {
         iconName: 'Add',
       },
@@ -149,7 +168,12 @@ function TopBar() {
     return {
       key: 'refresh',
       name: 'Refresh',
-      buttonStyles: {root: {backgroundColor: 'transparent', height: '100%'}},
+      buttonStyles: {root: {
+        backgroundColor: 'transparent', 
+        height: '100%',
+        paddingLeft: spacing.s1,
+        paddingRight: spacing.s1,
+      }},
       iconProps: {
         iconName: 'Refresh',
       },
@@ -444,12 +468,18 @@ function TopBar() {
       <CommandBar
         items={topBarItems}
         farItems={topBarFarItems}
-        styles={{root: {backgroundColor: 'transparent'}}}
+        styles={{root: {backgroundColor: 'transparent', marginTop: spacing.s1}}}
       />
       { active ? <CommandBar
         items={filterBarItems}
         farItems={filterBarFarItems}
-        styles={{root: {backgroundColor: '#ECECEC'}}}
+        styles={{root: {
+          backgroundColor: '#ECECEC',
+          marginBottom: spacing.s1,
+          marginTop: spacing.s1,
+          paddingTop: spacing.s1,
+          paddingBottom: spacing.s1,
+        }}}
       /> : null }
     </React.Fragment>
   );

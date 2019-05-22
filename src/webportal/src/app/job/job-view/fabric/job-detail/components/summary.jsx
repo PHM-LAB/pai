@@ -19,10 +19,12 @@ import {FontClassNames, FontWeights, FontSizes} from '@uifabric/styling';
 import c from 'classnames';
 import {get, isEmpty, isNil} from 'lodash';
 import {DateTime} from 'luxon';
-import {ActionButton, DefaultButton} from 'office-ui-fabric-react/lib/Button';
+import {ActionButton, DefaultButton, PrimaryButton} from 'office-ui-fabric-react/lib/Button';
 import {Dropdown} from 'office-ui-fabric-react/lib/Dropdown';
 import {Link} from 'office-ui-fabric-react/lib/Link';
 import {MessageBar, MessageBarType} from 'office-ui-fabric-react/lib/MessageBar';
+import {spacing} from '../../../../../components/theme';
+
 import PropTypes from 'prop-types';
 import React from 'react';
 import yaml from 'js-yaml';
@@ -274,7 +276,7 @@ export default class Summary extends React.Component {
     return (
       <div className={className}>
         {/* summary */}
-        <Card className={c(t.pv4)} style={{paddingLeft: 32, paddingRight: 32}}>
+        <Card style={{paddingLeft: spacing.l2, paddingRight: spacing.l2, paddingTop: spacing.l1, paddingBottom: spacing.l1, marginBottom: spacing.m}}>
           {/* summary-row-1 */}
           <div className={c(t.flex, t.justifyBetween, t.itemsCenter)}>
             <div
@@ -313,41 +315,42 @@ export default class Summary extends React.Component {
             </div>
           </div>
           {/* summary-row-2 */}
-          <div className={c(t.mt4, t.flex, t.itemsStart)}>
+          <div className={c(t.flex, t.itemsStart)} style={{marginTop: spacing.l1}}>
             <div>
               <div className={c(t.gray, FontClassNames.medium)}>Status</div>
-              <div className={c(t.mt2)}>
-                <StatusBadge status={getHumanizedJobStateString(jobInfo)}/>
+              <div style={{marginTop: spacing.m}}>
+              <StatusBadge status={getHumanizedJobStateString(jobInfo)}/>
               </div>
             </div>
             <div className={t.ml5}>
               <div className={c(t.gray, FontClassNames.medium)}>Start Time</div>
-              <div className={c(t.mt2, FontClassNames.mediumPlus)}>
+              <div className={c(FontClassNames.mediumPlus)} style={{marginTop: spacing.m}}>
                 {printDateTime(DateTime.fromMillis(jobInfo.jobStatus.createdTime))}
               </div>
             </div>
             <div className={t.ml5}>
               <div className={c(t.gray, FontClassNames.medium)}>User</div>
-              <div className={c(t.mt2, FontClassNames.mediumPlus)}>
+              <div className={c(FontClassNames.mediumPlus)} style={{marginTop: spacing.m}}>
+
                 {jobInfo.jobStatus.username}
               </div>
             </div>
             <div className={t.ml5}>
               <div className={c(t.gray, FontClassNames.medium)}>Virtual Cluster</div>
-              <div className={c(t.mt2, FontClassNames.mediumPlus)}>
+              <div className={c(FontClassNames.mediumPlus)} style={{marginTop: spacing.m}}>
                 {jobInfo.jobStatus.virtualCluster}
               </div>
             </div>
             <div className={t.ml5}>
               <div className={c(t.gray, FontClassNames.medium)}>Duration</div>
-              <div className={c(t.mt2, FontClassNames.mediumPlus)}>
+              <div className={c(FontClassNames.mediumPlus)} style={{marginTop: spacing.m}}>
                 {getDurationString(jobInfo)}
               </div>
             </div>
             <div className={t.ml5}>
               <div className={c(t.gray, FontClassNames.medium)}>Retries</div>
               <Link
-                className={c(t.mt2, FontClassNames.mediumPlus)}
+                className={c(FontClassNames.mediumPlus)} style={{marginTop: spacing.m}}
                 onClick={() => openJobAttemptsPage(jobInfo.jobStatus.retries)}
                 disabled={isNil(jobInfo.jobStatus.retries)}
               >
@@ -372,7 +375,7 @@ export default class Summary extends React.Component {
               >
                 View Job Config
               </Link>
-              <div className={c(t.bl, t.mh3)}></div>
+              <div className={c(t.bl)} style={{marginLeft: spacing.m, marginRight: spacing.m}}></div>
               <Link
                 styles={{root: [FontClassNames.mediumPlus]}}
                 href='#'
@@ -381,7 +384,7 @@ export default class Summary extends React.Component {
               >
                 View Exit Diagnostics
               </Link>
-              <div className={c(t.bl, t.mh3)}></div>
+              <div className={c(t.bl)} style={{marginLeft: spacing.m, marginRight: spacing.m}}></div>
               <Link
                 styles={{root: [FontClassNames.mediumPlus]}}
                 href={jobInfo.jobStatus.appTrackingUrl}
@@ -389,7 +392,7 @@ export default class Summary extends React.Component {
               >
                 Go to Application Tracking Page
               </Link>
-              <div className={c(t.bl, t.mh3)}></div>
+              <div className={c(t.bl)} style={{marginLeft: spacing.m, marginRight: spacing.m}}></div>
               <Link
                 styles={{root: [FontClassNames.mediumPlus]}}
                 href={getJobMetricsUrl()}
@@ -399,13 +402,13 @@ export default class Summary extends React.Component {
               </Link>
             </div>
             <div>
-              <DefaultButton
+              <PrimaryButton
                 text='Clone'
                 onClick={() => cloneJob(rawJobConfig)}
                 disabled={!isClonable(rawJobConfig)}
               />
               <DefaultButton
-                className={c(t.ml3)}
+                style={{marginLeft: spacing.s1}}
                 text='Stop'
                 onClick={onStopJob}
                 disabled={!StoppableStatus.includes(getHumanizedJobStateString(jobInfo))}
